@@ -295,9 +295,51 @@ img {
    display: flex;
    justify-content: space-between;
 }
+
 .work-list .item:not(:last-child) {
    margin-right: 30px;
 }
+
+.work {
+   position: relative;
+}
+
+.work-list .work::before {
+   content: "";
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   display: block;
+   width: 100%;
+   height: 70px;
+   background-color: rgba(47, 48, 58, 0.8);
+
+}
+
+
+
+
+.work-item-text {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   position: absolute;
+   
+   bottom: 0;
+   width: 100%;
+   height: 70px;
+
+   font-family: var(--main-font);
+   font-weight: 700;
+   font-size: 14px;
+   line-height: 1.14;
+   text-align: center;
+   text-transform: uppercase;
+   color: var(--primary-white-color);
+}
+
+
 
 /* Team */
 .user-list {
@@ -652,6 +694,9 @@ img {
 
 }
 
+.modal-icon {
+
+}
 
 
 
