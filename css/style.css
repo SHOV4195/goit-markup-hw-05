@@ -687,7 +687,7 @@ img {
 
 .project-link {
    display: block;
-   overflow: hidden;
+
 
 }
 
@@ -756,10 +756,11 @@ img {
 
 .product-thumb {
    position: relative;
+   overflow: hidden;
 }
 
-.product-thumb::before {
-   display: inline-block;
+.project-overlay {
+ 
    content: "";
    position: absolute;
    top: 0;
@@ -773,11 +774,11 @@ img {
    transform 250ms var(--timing-function);
 
 }
-.project-link:hover .product-thumb::before {
+.project-link:hover .project-overlay {
    opacity: 1;
 }
 
-.project-list:hover .product-thumb::before {
+.project-list:hover .project-overlay {
    transform: translateY(0);
 }
 
@@ -801,16 +802,24 @@ img {
    pointer-events: none;
 }
 
-.modal {
-   width: 500px;
-   height: 500px;
-   background-color: var(--primary-white-color);
+.backdrop.is-hidden .modal {
+   transform: translate(-50%, -50%) scale(0.9);
+}
 
+
+.modal {
    position: absolute;
    top: 50%;
    left: 50%;
-   transform: translate(-50%, -50%);
 
+   min-width: 500px;
+   min-height: 500px;
+
+   background-color: var(--primary-white-color);
+
+   transform: translate(-50%, -50%) scale(1);
+
+   transition: transform 250ms var(--timing-function);
 }
 
 .modal-icon {
