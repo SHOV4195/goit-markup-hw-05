@@ -16,6 +16,7 @@
 /* Other */
    --items: 4;
    --indent: 30px;
+   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -109,6 +110,7 @@ img {
 /* Site nav */
 
 .site-nav {
+
    margin-left: 93px;
 
    display: flex;
@@ -117,10 +119,31 @@ img {
 
 .site-nav .item {
    margin-left: 50px;
+   position: relative;
 }
+
+
 
 .site-nav .item:last-child {
    margin-right: 0;
+}
+
+.site-nav .item::after {
+   content: "";
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   display: block;
+   width: 100%;
+   height: 5px;
+   background-color: var(--accent-color);
+   border-radius: 2px;
+   opacity: 0;
+   transition: opacity 250ms var(--timing-function);
+}
+
+.site-nav .item:hover::after {
+   opacity: 1;
 }
 
 .site-nav .link {
@@ -132,6 +155,7 @@ img {
    line-height: 1.14;
    letter-spacing: 0.02em;
    text-decoration: none;
+   transition: color 250ms var(--timing-function);
 }
 
 .site-nav .link:hover, 
@@ -139,9 +163,12 @@ img {
    color: var(--accent-color);
 }
 
+
+
 .site-nav .link.current {
-   color: var(--accent-color);
+   color: var(--accent-color);   
 }
+
 
 
 
@@ -171,6 +198,7 @@ img {
 .aut-nav .link:hover,
 .aut-nav .link:focus {
    color: var(--accent-color);
+   transition: color 250ms var(--timing-function);
 }
 
 .header-icon {
@@ -378,6 +406,8 @@ img {
    letter-spacing: 0.06em;
    cursor: pointer;
    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+   transition: background-color 250ms var(--timing-function);
 }
 
 .button:hover,
@@ -414,6 +444,11 @@ img {
    background-color: var(--secondary-background-color);
    color: var(--primary-black-color);
    cursor: pointer;
+
+   transition: 
+   background-color 250ms var(--timing-function), 
+   color 250ms var(--timing-function),
+   box-shadow 250ms var(--timing-function);
 }
 
 .filters-button:hover,
@@ -466,6 +501,10 @@ img {
    border-radius: 50%;
    width: 44px;
    height: 44px;
+
+   transition: 
+   background-color 250ms var(--timing-function), 
+   color 250ms var(--timing-function);
 }
 
 .social-media-link:hover,
@@ -501,12 +540,17 @@ img {
    color: #AFB1B8;
    border: 1px solid #AFB1B8;
    border-radius: 4px;
+
+   transition: 
+   color 250ms var(--timing-function), 
+   border-color 250ms var(--timing-function);
 }
 
 .clients-link:hover,
 .clients-link:focus {
    color: var(--accent-color);
    border-color: var(--accent-color);
+
 }
 .clients-logo {
    fill: currentColor;
@@ -547,6 +591,8 @@ img {
    font-size: 14px;
    line-height: 1.71;
 
+   transition: color 250ms var(--timing-function);
+
 }
 .footer-address-link:hover,
 .footer-address-link:focus {
@@ -557,6 +603,8 @@ img {
 .aut-address {
    color: rgba(255, 255, 255, 0.6);
    margin-bottom: 9px;
+
+   transition: color 250ms var(--timing-function);
 }
 
 .aut-address:hover,
@@ -598,6 +646,10 @@ img {
    border-radius: 50%;
    width: 44px;
    height: 44px;
+
+   transition: 
+   background-color 250ms var(--timing-function),
+   color 250ms var(--timing-function);
 }
 
 .footer-social-link:hover,
@@ -657,6 +709,10 @@ img {
    padding: 20px 24px;
    border: 1px solid #EEEEEE;
    border-top: none;
+}
+
+.project-list {
+   transition: box-shadow 250ms var(--timing-function);
 }
 
 .project-list:hover,
